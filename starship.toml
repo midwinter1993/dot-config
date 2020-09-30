@@ -1,0 +1,46 @@
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜ "
+[character]      # The name of the module we are configuring is "character"
+symbol = "➜ "     # The "symbol" segment is being set to "➜ "
+error_symbol = "✗"
+use_symbol_for_status = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[hostname]
+ssh_only = true
+prefix = "⟪"
+suffix = "⟫"
+trim_at = ".companyname.com"
+disabled = false
+
+[username]
+show_always = true
+disabled = false
+
+[jobs]
+symbol = "✦ + "
+threshold = 0
+style = "bold green"
+
+[time]
+disabled = false
+format = " [ %R ]"
+# utc_time_offset = "-5"
+style = "bold yellow"
+
+[python]
+symbol = " "
+# style = "bold fg:3"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false

@@ -1,0 +1,5 @@
+[startship.toml]
+path = ~/.config/starship.toml
+
+[.gitignore]
+path = ~/.gitconfig

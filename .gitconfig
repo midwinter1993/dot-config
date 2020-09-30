@@ -1,0 +1,23 @@
+[user]
+	email = midwinter1993@gmail.com
+	name = Dongjie Chen
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	c = commit -m
+	a = add .
+	s = status
+	p = push origin master
+	n = rev-list --count master
+	d = diff
+	r = remote -v
+	b = branch
+
+[github]
+	user = midwinter1993
+[core]
+	quotepath = off
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
