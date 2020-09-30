@@ -3,3 +3,6 @@ path = ~/.config/starship.toml
 
 [.gitignore]
 path = ~/.gitconfig
+
+[.zshrc]
+path = ~/.zshrc
