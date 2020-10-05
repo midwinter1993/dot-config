@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
+from typing import Dict
+import shutil
+import toml
+import pprint
+import argparse
+
+
+class Manager:
+    @staticmethod
+    def load_meta():
+        with open('./meta.toml') as fd:
+            return toml.loads(fd.read())
+        #  pprint.pprint(parsed_toml)
+
+    def __init__(self, meta):
+        self.meta_ = meta
+
+    def run(self, args):
+        for tool_name in self.meta_:
+            if args.tool is not None and args.tool != tool_name:
+                continue
+
+            tool_config = self.meta_[tool_name]
+
+            if args.update:
+                self._update(tool_config)
+
+            elif args.install:
+                self._install(tool_config)
+
+    def _install(self, tool_config):
+        src_path = f'./{tool_config.get("config_file")}'
+        dst_path = tool_config['path']
+
+        print(f'COPY {src_path} TO {dst_path}')
+        shutil.copyfile(src_path, dst_path)
+
+    def _update(self, tool_config):
+        src_path = tool_config['path']
+        dst_path = f'./{tool_config.get("config_file")}'
+
+        print(f'COPY {src_path} TO {dst_path}')
+
+        #  shutil.copyfile(src_path, dst_path)
+
+
+if __name__ == "__main__":
+    meta = Manager.load_meta()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--update',
+                        dest='update',
+                        action='store_true',
+                        help='Update config')
+
+    parser.add_argument('--install',
+                        dest='install',
+                        action='store_true',
+                        help='Install config')
+
+    parser.add_argument('--tool',
+                        dest='tool',
+                        type=str,
+                        help='Install config')
+
+    args = parser.parse_args()
+
+    mngr = Manager(meta)
+    mngr.run(args)
