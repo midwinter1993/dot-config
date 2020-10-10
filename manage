@@ -46,7 +46,7 @@ class Manager:
 
         print(f'COPY {src_path} TO {dst_path}')
 
-        #  shutil.copyfile(os.path.expanduser(src_path), os.path.expanduser(dst_path))
+        shutil.copyfile(os.path.expanduser(src_path), os.path.expanduser(dst_path))
 
 
 if __name__ == "__main__":

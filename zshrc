@@ -153,6 +153,7 @@ export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 if [[ "$(uname)" == "Linux" ]]; then
     alias o="xdg-open"
     alias screenlock='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock'
+    export QT_LOGGING_RULES='*=false' # Suppress warnings
 elif [[ "$(uname)" == "Darwin" ]]; then
     alias o="open"
 fi
