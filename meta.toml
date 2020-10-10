@@ -14,3 +14,6 @@ path = "~/.zshrc"
 config_file = "vimrc"
 path = "~/.vimrc"
 install = "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+[pip]
+proxy = "pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/"
