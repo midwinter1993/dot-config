@@ -7,6 +7,7 @@ import shutil
 import toml
 import pprint
 import argparse
+import os
 
 
 class Manager:
@@ -37,7 +38,7 @@ class Manager:
         dst_path = tool_config['path']
 
         print(f'COPY {src_path} TO {dst_path}')
-        shutil.copyfile(src_path, dst_path)
+        shutil.copyfile(os.path.expanduser(src_path), os.path.expanduser(dst_path))
 
     def _update(self, tool_config):
         src_path = tool_config['path']
@@ -45,7 +46,7 @@ class Manager:
 
         print(f'COPY {src_path} TO {dst_path}')
 
-        #  shutil.copyfile(src_path, dst_path)
+        #  shutil.copyfile(os.path.expanduser(src_path), os.path.expanduser(dst_path))
 
 
 if __name__ == "__main__":

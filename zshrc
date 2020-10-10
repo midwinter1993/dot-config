@@ -135,6 +135,13 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 #=============================
+# Tex
+#=============================
+export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
+export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+
+#=============================
 # Start startship
 #=============================
 eval "$(starship init zsh)"
