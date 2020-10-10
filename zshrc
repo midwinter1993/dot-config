@@ -100,7 +100,9 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_EN.utf8
 
+#=============================
 # Snap
+#=============================
 export PATH=$PATH:/snap/bin
 
 #=============================
@@ -132,7 +134,11 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 #=============================
 # Java
 #=============================
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+if [[ "$(uname)" == "Linux" ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+elif [[ "$(uname)" == "Darwin" ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 #=============================
 # Tex
@@ -140,6 +146,28 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+
+#=============================
+# Shortcut for open
+#=============================
+if [[ "$(uname)" == "Linux" ]]; then
+    alias o="xdg-open"
+    alias screenlock='qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock'
+elif [[ "$(uname)" == "Darwin" ]]; then
+    alias o="open"
+fi
+
+#=============================
+# Shortcut for tools
+#=============================
+alias jb="jobs"
+alias his='history'
+
+if [[ "$(uname)" == "Linux" ]]; then
+    alias cpu='top -o %CPU'
+    alias mem='top -o %MEM'
+    alias random="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13"
+fi
 
 #=============================
 # Start startship
