@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+# ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -169,6 +169,12 @@ if [[ "$(uname)" == "Linux" ]]; then
     alias mem='top -o %MEM'
     alias random="head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13"
 fi
+
+#=============================
+# The-fuck
+#=============================
+eval "$(thefuck --alias)"
+
 
 #=============================
 # Start startship

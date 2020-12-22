@@ -41,7 +41,10 @@ class Manager:
         shutil.copyfile(os.path.expanduser(src_path), os.path.expanduser(dst_path))
 
     def _update(self, tool_config):
-        src_path = tool_config['path']
+        src_path = tool_config.get('path', None)
+        if not src_path:
+            return
+        #  src_path = tool_config['path']
         dst_path = f'./{tool_config.get("config_file")}'
 
         print(f'COPY {src_path} TO {dst_path}')

@@ -31,7 +31,7 @@ style = "bold green"
 disabled = false
 format = " [ %R ]"
 # utc_time_offset = "-5"
-style = "bold yellow"
+style = "white"
 
 [python]
 symbol = " "

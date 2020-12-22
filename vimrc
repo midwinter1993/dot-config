@@ -150,12 +150,12 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$', '\.bc$', '\.class$', '\.d$']
 "---------------------------------------------
 
 "-------------CtrlP---------------------------
-Bundle 'ctrlpvim/ctrlp.vim'
+" Bundle 'ctrlpvim/ctrlp.vim'
 "---------------------------------------------
 
 "-------------CtrlP-Funnky--------------------
 " ctrlp插件1 - 不用ctag进行函数快速跳转
-Bundle 'tacahiroy/ctrlp-funky'
+" Bundle 'tacahiroy/ctrlp-funky'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -310,14 +310,14 @@ nnoremap <leader>q :Yapf<cr>
 "---------------------------------------------
 
 "-----------Import sort for python-----------
-Plugin 'fisadev/vim-isort'
+" Plugin 'fisadev/vim-isort'
 "---------------------------------------------
 
 "-------------GitHub Gist---------------------
-Bundle 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+" Bundle 'mattn/webapi-vim'
+" Plugin 'mattn/gist-vim'
+" let g:gist_show_privates = 1
+" let g:gist_post_private = 1
 "---------------------------------------------
 
 "-------------Devicons------------------------
@@ -328,7 +328,7 @@ let g:gist_post_private = 1
 "---------------------------------------------
 
 "-------------vim-racket----------------------
-Plugin 'wlangstroth/vim-racket'
+" Plugin 'wlangstroth/vim-racket'
 "---------------------------------------------
 
 "-------------vim-racket----------------------
@@ -337,7 +337,7 @@ nmap t :A<CR>
 "---------------------------------------------
 
 "------------ vimtex for Latex ---------------
-Plugin 'lervag/vimtex'
+" Plugin 'lervag/vimtex'
 "---------------------------------------------
 let g:tex_conceal = ""
 
@@ -348,28 +348,32 @@ filetype plugin indent on    " required
 "==========================================
 " Genaral
 "==========================================
+
+" File encoding
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
+
 " history length
 set history=1000
 
 "检测文件类型
 filetype on
 
-" 针对不同的文件类型采用不同的缩进格式
+" Different indent for diffent file types
 filetype indent on
 
-"允许插件
 filetype plugin on
 
-"启动自动补全
 filetype plugin indent on
 
-" 文件修改之后自动载入。
-
+" Auto-loading file after modification
 set autoread
-" 启动的时候不显示那个援助索马里儿童的提示
+
+" No showup messages when startup
 set shortmess=atI
 
-" 取消备份。
+" No backups
 set nobackup
 set nowb
 set noswapfile
@@ -381,7 +385,6 @@ set noswapfile
 set mouse=a
 
 " No annoying sound on errors
-" " 去掉输入错误的提示声音
 set title                " change the terminal's title
 set novisualbell         " don't beep
 set noerrorbells         " don't beep
@@ -391,16 +394,18 @@ set tm=500
 "==========================================
 " show and format
 "==========================================
-" 显示行号：
 set number
+
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
 set scrolloff=7
-" 显示tab符
+
+" Show tab character
 " set list
 " set listchars=tab:\|\ ,
 
 "括号配对情况
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
