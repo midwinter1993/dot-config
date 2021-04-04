@@ -191,3 +191,9 @@ eval "$(starship init zsh)"
 # (a replacement of ls)
 #=============================
 alias l='exa'
+
+#=============================
+# Setup tokei
+# (a replacement of cloc)
+#=============================
+alias loc="tokei"
