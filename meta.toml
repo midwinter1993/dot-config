@@ -17,3 +17,7 @@ install = "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/V
 
 [pip]
 proxy = "pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/"
+
+[cargo]
+config_file = "cargo_config"
+path = "~/.cargo/config"
