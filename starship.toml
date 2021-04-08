@@ -12,9 +12,8 @@ use_symbol_for_status = true
 disabled = true
 
 [hostname]
+format = "⟪[$hostname]⟫($style) in "
 ssh_only = true
-prefix = "⟪"
-suffix = "⟫"
 trim_at = ".companyname.com"
 disabled = false
 
@@ -29,7 +28,8 @@ style = "bold green"
 
 [time]
 disabled = false
-format = " [ %R ]"
+time_format = "%R"
+format = " [$time]($style) "
 # utc_time_offset = "-5"
 style = "white"
 

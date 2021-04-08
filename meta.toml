@@ -1,4 +1,4 @@
-[startship]
+[starship]
 config_file = "starship.toml"
 path = "~/.config/starship.toml"
 

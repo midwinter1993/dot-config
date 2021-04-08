@@ -29,9 +29,13 @@ class Manager:
 
             if args.update:
                 self._update(tool_config)
+                return
 
             elif args.install:
                 self._install(tool_config)
+                return
+        else:
+            print(f'Not that tool`{tool_name}`')
 
     def _install(self, tool_config):
         src_path = f'./{tool_config.get("config_file")}'
