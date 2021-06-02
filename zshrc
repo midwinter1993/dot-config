@@ -77,13 +77,11 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
+# export LC_ALL=en_US.UTF-8
 # export LANG=en_US.UTF-8
+# export LANGUAGE=en_US.UTF-8
+# export LC_CTYPE=en_US.UTF-8
 # export LANG=zh_CN.UTF-8
-export LANG=en_CN.UTF-8
-export LC_CTYPE=en_US.UTF-8
-# export LC_ALL=en_CN.UTF-8
-export LC_ALL=C
-
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -104,12 +102,12 @@ export LC_ALL=C
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export LANG=en_EN.utf8
-
 #=============================
 # Snap
 #=============================
-export PATH=$PATH:/snap/bin
+if [[ "$(uname)" == "Linux" ]]; then
+    export PATH=$PATH:/snap/bin
+fi
 
 #=============================
 # Python
@@ -117,7 +115,9 @@ export PATH=$PATH:/snap/bin
 export VIRTUALENVWRAPPER_PYTHON="python3"
 export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ "$(uname)" == "Linux" ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 #=============================
 # Rust
@@ -127,7 +127,9 @@ export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 #=============================
 # Golang
 #=============================
-export PATH=$PATH:/usr/local/go/bin
+if [[ "$(uname)" == "Linux" ]]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
 
 #=============================
 # Nodejs
@@ -149,9 +151,11 @@ fi
 #=============================
 # Tex
 #=============================
-export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+if [[ "$(uname)" == "Linux" ]]; then
+    export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
+    export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
+    export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+fi
 
 #=============================
 # Shortcut for open
@@ -179,7 +183,7 @@ fi
 #=============================
 # The-fuck
 #=============================
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 #=============================
 # Start startship
@@ -190,7 +194,7 @@ eval "$(starship init zsh)"
 # Setup exa
 # (a replacement of ls)
 #=============================
-alias l='exa'
+alias ls='exa'
 
 #=============================
 # Setup tokei
